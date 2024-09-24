@@ -8,3 +8,7 @@ public class Prueba {
         System.out.println(num);
     }
 }
+//creo que ya me deja modificarlo bien 
+/*
+creoq que sí 
+*/
