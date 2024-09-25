@@ -107,6 +107,7 @@ public class Arreglo<E> {
 
 
     /* 7- Método que limpia el arreglo */
+
     public void limpiar() {
         for (int i = 0; i < l.length; i++) {
             l[i] = null;
@@ -115,6 +116,7 @@ public class Arreglo<E> {
     }
 
     /* 8- Método que devuelve el primer elemento del arreglo */
+
     public E primero() throws Exception {
         if (l.length == 0 || l[0] == null) {
             throw new Exception("El arreglo está vacío");
@@ -125,6 +127,7 @@ public class Arreglo<E> {
     }
 
     /* 9- Método que imprime los elementos del arreglo */
+
     public void imprimir() {
         for (int i = 0; i < l.length; i++) {
             if (l[i] != null) {
