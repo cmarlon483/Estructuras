@@ -67,13 +67,13 @@ public class ListaSimple <E> {
 
     //Metodo que devuelve el indice i si esta el elemento en la lista en dato x,
     // en caso contrario un -1
-    public void estaEnLista() {
+    public int estaEnLista(E dato) {
 
     }
 
     //Metodo que Elimina el nodo de acuerdo al índice,
     // devuelve un true si lo elimino en caso contrario devuelve un false
-    public void eliminarEnIndice(){
+    public boolean eliminarEnIndice(){
 
     }
 
@@ -87,7 +87,7 @@ public class ListaSimple <E> {
 
     }
 
-    //Metodo que cambia en la priimera ocurrencia el dato con el nuevo dato,
+    //Metodo que cambia en la primera ocurrencia el dato con el nuevo dato,
     // si el boolean es true,
     // cambiara todos los datos de la lista simple,
     // si es falso solo cambia el primero que se encuentre
