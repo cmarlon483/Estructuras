@@ -60,7 +60,7 @@ public class ListaSimple <E> {
 
     //Metodo que devuelve el valor de indice i
 
-    public E obtenerNodo(int i) throws RangoFueraDeLimite {
+    public E obtenerNodo(int i) throws IndiceFueraDeRango {
         Nodo<E> actual = cabeza;
         int contador = 0;
 
@@ -72,7 +72,7 @@ public class ListaSimple <E> {
 
         // Si 'actual' es null, el índice es inválido
         if (actual == null) {
-            throw new RangoFueraDeLimite ("Índice fuera de los límites.");
+            throw new IndiceFueraDeRango ("Índice fuera de los límites.");
         }
 
         return actual.getDato();
