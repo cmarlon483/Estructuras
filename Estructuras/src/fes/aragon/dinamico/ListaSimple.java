@@ -1,5 +1,5 @@
 package fes.aragon.dinamico;
-
+import fes.aragon.excepcion.IndiceFueraDeRango;
 
 public class ListaSimple <E> {
     private Nodo cabeza;
@@ -59,7 +59,6 @@ public class ListaSimple <E> {
     }
 
     //Metodo que devuelve el valor de indice i
-
     public E obtenerNodo(int i) throws IndiceFueraDeRango {
         Nodo<E> actual = cabeza;
         int contador = 0;
@@ -80,7 +79,7 @@ public class ListaSimple <E> {
 
     //Metodo que devuelve el indice i si esta el elemento en la lista en dato x,
     // en caso contrario un -1
-    public int estaEnLista(E dato) {
+    public int estaEnLista (E dato) {
         Nodo<E> actual = cabeza;
         int indice = 0;
 
@@ -94,13 +93,13 @@ public class ListaSimple <E> {
         }
         // Si el elemento no se encuentra, se retorna -1
         return -1;
-    }
+    
 
     }
 
     //Metodo que Elimina el nodo de acuerdo al índice,
     // devuelve un true si lo elimino en caso contrario devuelve un false
-    public boolean eliminarEnIndice( int i){
+    public boolean eliminarEnIndice (int i){
         if (i < 0 || cabeza == null) {
             return false; // Índice inválido o lista vacía
         }
@@ -132,7 +131,7 @@ public class ListaSimple <E> {
     }
 
     //Metodo que inserta el dato en el indice indicado
-    public void insertarEnIndice(){
+    public boolean insertarEnIndice (int i, E dato){
         if (i < 0) {
             return false; // Índice inválido
         }
@@ -169,7 +168,7 @@ public class ListaSimple <E> {
     }
 
     //Metodo que cambia el dato en el Indice indicado
-    public void asignar(){
+    public boolean asignar(int i, E nuevoDato){
         if (i < 0 || cabeza == null) {
             return false; // Índice inválido o lista vacía
         }
@@ -188,7 +187,7 @@ public class ListaSimple <E> {
             return false;
         }
 
-        // Se asigna el nuevo valor al nodo en la posición indicada
+        // Se asigna el nuevo valor al nodo en la posición indicado
         actual.setDato(nuevoDato);
         return true;
 
@@ -198,7 +197,7 @@ public class ListaSimple <E> {
     // si el boolean es true,
     // cambiara todos los datos de la lista simple,
     // si es falso solo cambia el primero que se encuentre
-    public void asignarR(E datoActual, E nuevoDato, boolean cambiarTodos){
+    public boolean asignarR(E datoActual, E nuevoDato, boolean cambiarTodos){
         if (cabeza == null) {
             return false; // Lista vacía
         }
@@ -221,4 +220,6 @@ public class ListaSimple <E> {
 
         return encontrado; // Retorna true si encontró al menos una ocurrencia
     }
+
+
 }
