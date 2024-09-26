@@ -67,13 +67,13 @@ public class ListaSimple <E> {
 
     //Metodo que devuelve el indice i si esta el elemento en la lista en dato x,
     // en caso contrario un -1
-    public E estaEnLista(int indice) {
+    public int estaEnLista(E dato) {
 
     }
 
     //Metodo que Elimina el nodo de acuerdo al índice,
     // devuelve un true si lo elimino en caso contrario devuelve un false
-    public void eliminarEnIndice(){
+    public boolean eliminarEnIndice(){
 
     }
 
