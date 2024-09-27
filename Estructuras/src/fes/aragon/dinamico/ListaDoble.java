@@ -1,8 +1,8 @@
 package fes.aragon.dinamico;
 
-public class ListaDoble {
-    private NodoDoble cabeza;
-    private NodoDoble cola;
+public class ListaDoble <E>{
+    private NodoDoble <E> cabeza;
+    private NodoDoble <E> cola;
     private int longitud=0;
 
 
