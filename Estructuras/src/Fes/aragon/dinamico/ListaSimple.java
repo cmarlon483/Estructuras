@@ -1,14 +1,19 @@
-package fes.aragon.dinamico;
-import fes.aragon.excepcion.IndiceFueraDeRango;
+package Fes.aragon.dinamico;
+
+import Fes.aragon.excepcion.IndiceFueraDeRango;
 
 public class ListaSimple <E> {
     private Nodo cabeza;
     private Nodo cola;
     private int longitud= 0;
 
+    public ListaSimple(){
+        cabeza=cola=null;
+    }
+
     //Obtener un indice a cada nodo
 
-    protected Nodo indice(int i){
+    public Nodo indice(int i){
         Nodo aux = cabeza;
         for (int actual = 0; actual < i; actual++){
             aux = aux.getSiguiente();
@@ -17,10 +22,33 @@ public class ListaSimple <E> {
     }
 
     //Constructor
+
     public ListaSimple(Nodo cabeza, Nodo cola, int longitud) {
         cabeza = cabeza;
         cola = cola;
         this.longitud = longitud;
+    }
+
+    //Metodo para agregar en cabeza
+
+    public void agregarEnCabeza(E dato){
+        cabeza = new Nodo(dato, cabeza);
+        if(cola==null){
+            cola=cabeza;
+        }
+        longitud++;
+    }
+
+    //Agregar en Cola
+
+    public void agregarEnCola(E dato){
+        if (cabeza == null) {
+            cabeza = cola = new Nodo<E>(dato);
+        } else {
+            cola.setSiguiente(new Nodo<E>(dato));
+            cola = cola.getSiguiente();
+        }
+        longitud++;
     }
 
     //Metodo para obtener la longitud de la  lista
@@ -51,14 +79,14 @@ public class ListaSimple <E> {
     //@return El dato almacenado en el nodo en la posición 'i'.
     // @throws IndiceFueraDeRango Si el índice está fuera de los límites de la lista.
 
-    public void EliminarEnCola(){
+    public void eliminarEnCola(){
         if(longitud==1){
             cabeza=cola=null;
         }else {
-           Nodo<E> ante = indice(longitud-2);
-           ante.setSiguiente(null);
-           cola=ante;
-           longitud--;
+            Nodo<E> ante = indice(longitud-2);
+            ante.setSiguiente(null);
+            cola=ante;
+            longitud--;
         }
     }
 
@@ -105,7 +133,7 @@ public class ListaSimple <E> {
         }
         // Si el elemento no se encuentra, se retorna -1
         return -1;
-    
+
 
     }
 
@@ -152,6 +180,7 @@ public class ListaSimple <E> {
     @param dato El dato que se desea almacenar en el nuevo nodo.
     @return true si se inserta el nodo correctamente; false si el índice es inválido.
     */
+
     public boolean insertarEnIndice (int i, E dato){
         if (i < 0) {
             return false; // Índice inválido
@@ -194,29 +223,10 @@ public class ListaSimple <E> {
     @param nuevoDato El nuevo dato que se desea asignar al nodo.
     @return true si se asigna el nuevo dato correctamente; false si el índice es inválido.
     */
-    public boolean asignar(int i, E nuevoDato){
-        if (i < 0 || cabeza == null) {
-            return false; // Índice inválido o lista vacía
-        }
+    public boolean asignar(int i, E nuevoDato ) {
 
-        Nodo<E> actual = cabeza;
-        int contador = 0;
-
-        // Se recorrre la lista hasta llegar al índice indicado
-        while (actual != null && contador < i) {
-            actual = actual.getSiguiente();
-            contador++;
-        }
-
-        // Si se llega al final de la lista antes de llegar al índice, se retorna false
-        if (actual == null) {
-            return false;
-        }
-
-        // Se asigna el nuevo valor al nodo en la posición indicado
-        actual.setDato(nuevoDato);
+        indice(i).setDato(nuevoDato);
         return true;
-
     }
 
     //Metodo que cambia en la primera ocurrencia el dato con el nuevo dato,
@@ -227,9 +237,11 @@ public class ListaSimple <E> {
     @param nuevoDato El nuevo dato que se asignará en lugar del datoActual.
     @param cambiarTodos Indica si se deben cambiar todas las ocurrencias (true) o solo la primera (false).
     @return true si al menos una ocurrencia fue modificada; false si la lista está vacía.
-    
+
     */
+
     public boolean asignarR(E datoActual, E nuevoDato, boolean cambiarTodos){
+
         if (cabeza == null) {
             return false; // Lista vacía
         }
@@ -253,5 +265,18 @@ public class ListaSimple <E> {
         return encontrado; // Retorna true si encontró al menos una ocurrencia
     }
 
+    //Metodo para Imprimir la lista
 
+    public void imprimirLista(){
+        int contador = 0;
+        Nodo<E> tmp = cabeza;
+        if (tmp.getSiguiente() != null) {
+            while (contador < longitud ) {
+                System.out.println(tmp.getDato());
+                tmp = tmp.getSiguiente();
+                contador++;
+            }
+        }
+    }
 }
+

@@ -1,6 +1,6 @@
-package fes.aragon.estatico;
+package Fes.aragon.estatico;
 
-import fes.aragon.excepcion.IndiceFueraDeRango;
+import Fes.aragon.excepcion.IndiceFueraDeRango;
 
 //Clase que tiene funciones para ocupar arreglos de tipo Integer
 public class Arreglo<E> {
@@ -26,9 +26,9 @@ public class Arreglo<E> {
     }
 
     /* 2- Metodo que localiza un valor en la lista, retornan el indice
-    * @param x valor Integer que se busca en la lista
-    * @return se retorna -l si no esta el vlaor de la lista, en caso contrario se retorna el indice
-    * */
+     * @param x valor Integer que se busca en la lista
+     * @return se retorna -l si no esta el vlaor de la lista, en caso contrario se retorna el indice
+     * */
 
     public Integer localiza(E x){
         for (int i =0; i < l.length; i++){
@@ -58,10 +58,10 @@ public class Arreglo<E> {
     }
 
     /* 4- Metodo que elimina un elemento en el indice indicado
-    *
-    * @param p entero que indica el indice del elemento a devolver
-    * @throws IndiceFueraDeRango excepcion que s earrpja cuando el indice p esta fuera de los rangos del arreglo
-    * */
+     *
+     * @param p entero que indica el indice del elemento a devolver
+     * @throws IndiceFueraDeRango excepcion que s earrpja cuando el indice p esta fuera de los rangos del arreglo
+     * */
 
     public void suprime(int p) throws IndiceFueraDeRango{
         if(p > l.length || p < 0){
@@ -145,3 +145,4 @@ public class Arreglo<E> {
         }
     }
 }
+

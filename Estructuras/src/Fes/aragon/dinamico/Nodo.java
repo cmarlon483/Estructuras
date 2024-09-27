@@ -1,4 +1,4 @@
-package fes.aragon.dinamico;
+package Fes.aragon.dinamico;
 
 public class Nodo <E> {
 
@@ -19,7 +19,7 @@ public class Nodo <E> {
     }
 
     public void setDato(E dato) {
-        dato = dato;
+        this.dato = dato;
     }
 
     public Nodo getSiguiente() {
