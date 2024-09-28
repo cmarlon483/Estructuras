@@ -95,22 +95,8 @@ public class ListaSimple <E> {
     @return El dato almacenado en el nodo en la posición 'i'.
     @throws IndiceFueraDeRango Si el índice está fuera de los límites de la lista.
     */
-    public E obtenerNodo(int i) throws IndiceFueraDeRango {
-        Nodo<E> actual = cabeza;
-        int contador = 0;
-
-        // Recorremos la lista hasta el índice deseado
-        while (actual != null && contador < i) {
-            actual = actual.getSiguiente();
-            contador++;
-        }
-
-        // Si 'actual' es null, el índice es inválido
-        if (actual == null) {
-            throw new IndiceFueraDeRango ("Índice fuera de los límites.");
-        }
-
-        return actual.getDato();
+    public E obtenerNodo(int i){
+        return (E) indice(i).getDato();
     }
 
     //Metodo que devuelve el indice i si esta el elemento en la lista en dato x,
@@ -151,6 +137,7 @@ public class ListaSimple <E> {
         // Si el índice es 0, se elimina la cabeza de la lista y se le asigna al siguiente nodo
         if (i == 0) {
             cabeza = cabeza.getSiguiente();
+            longitud--;
             return true;
         }
 
@@ -170,6 +157,7 @@ public class ListaSimple <E> {
 
         // El nodo siguiente es el que queremos eliminar, así que lo saltamos
         actual.setSiguiente(actual.getSiguiente().getSiguiente());
+        longitud--;
         return true;
 
     }
@@ -217,17 +205,20 @@ public class ListaSimple <E> {
 
     }
 
-    //Metodo que cambia el dato en el Indice indicado
-    /*
-    @param i El índice del nodo cuyo dato se desea modificar (comienza en 0).
-    @param nuevoDato El nuevo dato que se desea asignar al nodo.
-    @return true si se asigna el nuevo dato correctamente; false si el índice es inválido.
-    */
-    public boolean asignar(int i, E nuevoDato ) {
-
-        indice(i).setDato(nuevoDato);
-        return true;
+    // Método que cambia el dato en el índice indicado
+/*
+@param i El índice del nodo cuyo dato se desea modificar (comienza en 0).
+@param nuevoDato El nuevo dato que se desea asignar al nodo.
+@return true si se asigna el nuevo dato correctamente; false si el índice es inválido.
+*/
+    public void asignar(E dato, int i){
+        if (indice(i) != null){
+            indice(i).setDato(dato);
+        } else {
+            System.out.println("El indice no existe");
+        }
     }
+
 
     //Metodo que cambia en la primera ocurrencia el dato con el nuevo dato,
     // si el boolean es true,
